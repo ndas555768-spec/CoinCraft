@@ -1,5 +1,8 @@
 import Navbar from "../components/landing/Navbar";
 import Hero from "../components/landing/Hero";
+import About from "../components/landing/About";
+import Features from "../components/landing/Features";
+import ProductPreview from "../components/landing/ProductPreview";
 function LandingPage() {
     return (
         <>
@@ -10,6 +13,9 @@ function LandingPage() {
                 </h1>
             </main>
             <Hero />
+            <About />
+            <Features />
+            <ProductPreview />
         </>
     );
 }
