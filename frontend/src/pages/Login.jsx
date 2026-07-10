@@ -1,7 +1,8 @@
 import { useForm } from "react-hook-form";
 import { login } from "../services/auth";
-
+import { useNavigate } from "react-router-dom";
 function Login() {
+    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
@@ -17,6 +18,7 @@ function Login() {
 
             alert("Login Successful!");
 
+            navigate("/dashboard");
             console.log(response);
         } catch (error) {
             console.error(error);
