@@ -9,6 +9,7 @@ function Login() {
     } = useForm();
 
     const onSubmit = async (data) => {
+        console.log("Sending:", data);
         try {
             const response = await login(data);
 
