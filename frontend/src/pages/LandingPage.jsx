@@ -1,21 +1,23 @@
 import Navbar from "../components/landing/Navbar";
-import Hero from "../components/landing/Hero";
-import About from "../components/landing/About";
-import Features from "../components/landing/Features";
-import ProductPreview from "../components/landing/ProductPreview";
+
 function LandingPage() {
     return (
         <>
             <Navbar />
-            <main className="pt-28">
-                <h1 className="text-center text-5xl font-bold">
-                    Landing Page
-                </h1>
+
+            <main className="pt-28 min-h-screen bg-[#FAF8F5]">
+                <div className="max-w-7xl mx-auto px-8">
+
+                    <h1 className="text-6xl font-bold text-black">
+                        CoinCraft
+                    </h1>
+
+                    <p className="mt-6 text-xl text-stone-600">
+                        Smart personal finance management.
+                    </p>
+
+                </div>
             </main>
-            <Hero />
-            <About />
-            <Features />
-            <ProductPreview />
         </>
     );
 }

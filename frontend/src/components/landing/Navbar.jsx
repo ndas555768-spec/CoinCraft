@@ -13,17 +13,15 @@ function Navbar() {
 
                 {/* Navigation Links */}
                 <div className="hidden md:flex items-center gap-10">
-                    <a href="#about" className="hover:text-[#C2A878] transition">
-                        About
-                    </a>
+                    <Link to="/#about">About</Link>
 
-                    <a href="#features" className="hover:text-[#C2A878] transition">
+                    <Link to="/#features" className="hover:text-[#C2A878] transition">
                         Features
-                    </a>
+                    </Link>
 
-                    <a href="#faq" className="hover:text-[#C2A878] transition">
+                    <Link to="/#faq" className="hover:text-[#C2A878] transition">
                         FAQ
-                    </a>
+                    </Link >
                 </div>
 
                 {/* Buttons */}
