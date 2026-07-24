@@ -1,13 +1,13 @@
 import DashboardLayout from "../components/layout/DashboardLayout";
+import WelcomeBanner from "../components/dashboard/WelcomeBanner";
+import SummaryCards from "../components/dashboard/SummaryCards";
 
 function Dashboard() {
     return (
         <DashboardLayout>
+            <WelcomeBanner />
 
-            <h1 className="text-4xl font-bold">
-                Dashboard
-            </h1>
-
+            <SummaryCards />
         </DashboardLayout>
     );
 }

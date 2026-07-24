@@ -1,60 +1,60 @@
-import SectionHeading from "../common/SectionHeading";
-import Card from "../common/Card";
-
-const features = [
-    {
-        title: "Expense Tracking",
-        description:
-            "Record every expense in seconds and understand where your money goes.",
-    },
-    {
-        title: "Smart Budgeting",
-        description:
-            "Create monthly budgets and receive alerts before you overspend.",
-    },
-    {
-        title: "Savings Goals",
-        description:
-            "Set personal financial goals and monitor your progress over time.",
-    },
-    {
-        title: "Financial Dashboard",
-        description:
-            "View your income, expenses, balance, and insights from one place.",
-    },
-];
+import { FaWallet, FaChartLine, FaBullseye } from "react-icons/fa";
 
 function Features() {
+    const features = [
+        {
+            icon: <FaWallet className="text-3xl text-[#C2A878]" />,
+            title: "Expense Tracking",
+            description:
+                "Monitor every transaction and understand where your money goes.",
+        },
+        {
+            icon: <FaChartLine className="text-3xl text-[#C2A878]" />,
+            title: "Smart Analytics",
+            description:
+                "Interactive charts and reports help you make better financial decisions.",
+        },
+        {
+            icon: <FaBullseye className="text-3xl text-[#C2A878]" />,
+            title: "Goal Planning",
+            description:
+                "Set savings goals and track your progress with ease.",
+        },
+    ];
+
     return (
-        <section
-            id="features"
-            className="py-28 px-8 bg-[#FAF8F5]"
-        >
-            <div className="max-w-7xl mx-auto">
+        <section id="features" className="py-24 bg-[#FAF8F5]">
+            <div className="max-w-7xl mx-auto px-8">
 
-                <SectionHeading
-                    title="Everything You Need"
-                    subtitle="Simple tools that help you manage your finances with confidence."
-                />
+                <div className="text-center mb-16">
+                    <h2 className="text-5xl font-bold mb-4">
+                        Everything You Need
+                    </h2>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <p className="text-stone-600 text-lg">
+                        Powerful tools to simplify your financial journey.
+                    </p>
+                </div>
 
+                <div className="grid md:grid-cols-3 gap-8">
                     {features.map((feature) => (
-                        <Card
+                        <div
                             key={feature.title}
-                            className="hover:-translate-y-2 transition duration-300"
+                            className="bg-white rounded-2xl shadow-md p-8 hover:shadow-xl transition"
                         >
-                            <h3 className="text-xl font-semibold mb-4">
+                            {feature.icon}
+
+                            <h3 className="text-2xl font-semibold mt-6 mb-4">
                                 {feature.title}
                             </h3>
 
                             <p className="text-stone-600 leading-7">
                                 {feature.description}
                             </p>
-                        </Card>
+                        </div>
                     ))}
-
                 </div>
+
             </div>
         </section>
     );
