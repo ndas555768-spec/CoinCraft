@@ -1,37 +1,56 @@
-import StatCard from "./StatCard";
+import {
+    FaWallet,
+    FaArrowTrendUp,
+    FaArrowTrendDown,
+    FaPiggyBank,
+} from "react-icons/fa6";
+
+const cards = [
+    {
+        title: "Total Balance",
+        amount: "₹48,650",
+        icon: <FaWallet className="text-2xl text-blue-600" />,
+    },
+    {
+        title: "Income",
+        amount: "₹50,000",
+        icon: <FaArrowTrendUp className="text-2xl text-green-600" />,
+    },
+    {
+        title: "Expenses",
+        amount: "₹1,350",
+        icon: <FaArrowTrendDown className="text-2xl text-red-600" />,
+    },
+    {
+        title: "Savings",
+        amount: "₹48,650",
+        icon: <FaPiggyBank className="text-2xl text-yellow-500" />,
+    },
+];
 
 function SummaryCards() {
     return (
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+        <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+            {cards.map((card) => (
+                <div
+                    key={card.title}
+                    className="bg-white rounded-2xl shadow-sm border border-stone-200 p-6"
+                >
+                    <div className="flex justify-between items-center">
+                        <div>
+                            <p className="text-stone-500">{card.title}</p>
 
-            <StatCard
-                title="Total Balance"
-                amount="₹1,25,000"
-                change="+12.4% this month"
-                changeType="positive"
-            />
+                            <h2 className="text-3xl font-bold mt-2">
+                                {card.amount}
+                            </h2>
+                        </div>
 
-            <StatCard
-                title="Income"
-                amount="₹75,000"
-                change="+8.2%"
-                changeType="positive"
-            />
-
-            <StatCard
-                title="Expenses"
-                amount="₹28,400"
-                change="-5.4%"
-                changeType="negative"
-            />
-
-            <StatCard
-                title="Savings"
-                amount="₹46,600"
-                change="+15.8%"
-                changeType="positive"
-            />
-
+                        <div className="bg-stone-100 p-4 rounded-xl">
+                            {card.icon}
+                        </div>
+                    </div>
+                </div>
+            ))}
         </div>
     );
 }

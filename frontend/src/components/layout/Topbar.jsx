@@ -1,53 +1,54 @@
-import { Search, Bell } from "lucide-react";
+import { Bell, Search } from "lucide-react";
 
 function Topbar() {
     return (
         <header className="h-20 bg-white border-b border-stone-200 flex items-center justify-between px-8">
 
-            {/* Left */}
-            <div>
-                <h2 className="text-2xl font-bold text-stone-900">
-                    Dashboard
-                </h2>
+            {/* Search */}
+            <div className="relative w-96">
 
-                <p className="text-sm text-stone-500">
-                    Welcome back! Manage your finances with confidence.
-                </p>
+                <Search
+                    size={18}
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400"
+                />
+
+                <input
+                    type="text"
+                    placeholder="Search transactions..."
+                    className="w-full pl-11 pr-4 py-3 rounded-xl border border-stone-200 outline-none focus:ring-2 focus:ring-[#C2A878]"
+                />
+
             </div>
 
-            {/* Right */}
+            {/* Right Side */}
+
             <div className="flex items-center gap-6">
 
-                {/* Search */}
-                <div className="hidden lg:flex items-center bg-stone-100 rounded-xl px-4 py-2">
-                    <Search size={18} className="text-stone-500" />
+                <button className="relative">
+                    <Bell size={24} />
 
-                    <input
-                        type="text"
-                        placeholder="Search..."
-                        className="bg-transparent outline-none ml-2 text-sm w-56"
-                    />
-                </div>
+                    <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-red-500 text-white text-xs flex items-center justify-center">
+                        3
+                    </span>
 
-                {/* Notification */}
-                <button className="relative p-3 rounded-xl hover:bg-stone-100 transition">
-                    <Bell size={20} />
-
-                    <span className="absolute top-2 right-2 w-2 h-2 bg-red-500 rounded-full"></span>
                 </button>
 
-                {/* Profile */}
                 <div className="flex items-center gap-3">
-                    <div className="w-11 h-11 rounded-full bg-[#C2A878] flex items-center justify-center text-white font-semibold">
+
+                    <div className="w-11 h-11 rounded-full bg-[#C2A878] flex items-center justify-center text-white font-bold">
                         N
                     </div>
 
-                    <div className="hidden md:block">
-                        <p className="font-semibold">Nandita Das</p>
-                        <p className="text-xs text-stone-500">
+                    <div>
+                        <h4 className="font-semibold">
+                            Nandita Das
+                        </h4>
+
+                        <p className="text-sm text-stone-500">
                             Premium User
                         </p>
                     </div>
+
                 </div>
 
             </div>
