@@ -4,9 +4,17 @@ from .views import (
     IncomeDetailView,
     ExpenseListCreateView,
     ExpenseDetailView,
+    UnifiedTransactionListView,
 )
 
 urlpatterns = [
+    # Unified transactions search / feed
+    path(
+        "all/",
+        UnifiedTransactionListView.as_view(),
+        name="transactions-all",
+    ),
+
     # Income
     path(
         "income/",

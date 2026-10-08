@@ -1,17 +1,19 @@
-function WelcomeBanner() {
-    return (
-        <section className="mb-10">
+import { useAuth } from "../../context/AuthContext";
 
-            <h1 className="text-4xl font-bold text-stone-900">
-                Welcome back, Nandita 👋
-            </h1>
+function WelcomeBanner({ name }) {
+  const { user } = useAuth();
+  const displayName = name || user?.username || (user?.email ? user.email.split("@")[0] : "Investor");
 
-            <p className="mt-3 text-stone-600 text-lg">
-                Here's a quick overview of your finances today.
-            </p>
-
-        </section>
-    );
+  return (
+    <section className="mb-8">
+      <h1 className="text-3xl font-extrabold text-stone-900 tracking-tight">
+        Welcome back, {displayName} 👋
+      </h1>
+      <p className="mt-1 text-stone-500 text-sm">
+        Here is a real-time overview of your finances and piggy-bank progress today.
+      </p>
+    </section>
+  );
 }
 
 export default WelcomeBanner;

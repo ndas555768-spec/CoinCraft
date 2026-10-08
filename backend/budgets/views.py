@@ -1,6 +1,3 @@
-from django.shortcuts import render
-
-# Create your views here.
 from rest_framework.generics import (
     ListCreateAPIView,
     RetrieveUpdateDestroyAPIView,
@@ -16,14 +13,22 @@ class BudgetListCreateView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Budget.objects.filter(
-            user=self.request.user
-        ).order_by("-year", "-month")
+        qs = Budget.objects.filter(user=self.request.user)
+        month = self.request.query_params.get("month")
+        year = self.request.query_params.get("year")
+        category = self.request.query_params.get("category")
+
+        if month and month.isdigit():
+            qs = qs.filter(month=int(month))
+        if year and year.isdigit():
+            qs = qs.filter(year=int(year))
+        if category:
+            qs = qs.filter(category=category)
+
+        return qs.order_by("-year", "-month", "category")
 
     def perform_create(self, serializer):
-        serializer.save(
-            user=self.request.user
-        )
+        serializer.save(user=self.request.user)
 
 
 class BudgetDetailView(RetrieveUpdateDestroyAPIView):
@@ -31,6 +36,4 @@ class BudgetDetailView(RetrieveUpdateDestroyAPIView):
     permission_classes = [IsAuthenticated]
 
     def get_queryset(self):
-        return Budget.objects.filter(
-            user=self.request.user
-        )
+        return Budget.objects.filter(user=self.request.user)
